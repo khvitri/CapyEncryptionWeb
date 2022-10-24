@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webpage/Functions/Upload.dart';
-import 'package:path/path.dart';
 
 class PullUpPage extends StatefulWidget {
   @override
@@ -10,8 +9,7 @@ class PullUpPage extends StatefulWidget {
 class _PullUpPageState extends State<PullUpPage> {
   dynamic file;
 
-  List<Widget> pageChildren(
-      double width, BuildContext context, String fileName) {
+  List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Container(
           width: width,
@@ -32,29 +30,22 @@ class _PullUpPageState extends State<PullUpPage> {
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
-                Text(fileName),
-                Text("Pull Up Files Here"),
               ]))
     ];
   }
 
   @override
   Widget build(BuildContext context) {
-    String fileName = file != null ? basename(file!.path) : '';
-    print(file);
-    print(fileName);
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:
-                pageChildren(constraints.biggest.width / 2, context, fileName),
+            children: pageChildren(constraints.biggest.width / 2, context),
           );
         } else {
           return Column(
-            children:
-                pageChildren(constraints.biggest.width, context, fileName),
+            children: pageChildren(constraints.biggest.width, context),
           );
         }
       },

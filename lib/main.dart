@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webpage/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/Navbar/Navbar.dart';
 
-import 'EncryptionPage/EncryptionPage.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
