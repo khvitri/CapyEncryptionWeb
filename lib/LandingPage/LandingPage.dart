@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webpage/EncryptionPage/EncryptionPage.dart';
 
 class LandingPage extends StatelessWidget {
-  List<Widget> pageChildren(double width) {
+  List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Container(
         width: width,
@@ -18,21 +19,26 @@ class LandingPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Text(
-                "The Capybara community has deemed this online encrytor worthy of 'ok i pull up'. \n ₍ᐢ•(ܫ)•ᐢ₎ 🖒 ",
+                "The Capybara community has deemed this online encrytor worthy of 'ok i pull up'.",
                 style: TextStyle(fontSize: 16.0, color: Colors.white),
               ),
             ),
             MaterialButton(
-              color: Colors.white,
+              color: Color.fromARGB(255, 19, 126, 38),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EncryptionPage()),
+                );
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: 20.0, horizontal: 40.0),
                 child: Text(
                   "Encrypt Now!",
-                  style: TextStyle(color: Color.fromARGB(100, 169, 133, 119)),
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             )
@@ -63,11 +69,11 @@ class LandingPage extends StatelessWidget {
         if (constraints.maxWidth > 800) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: pageChildren(constraints.biggest.width / 2),
+            children: pageChildren(constraints.biggest.width / 2, context),
           );
         } else {
           return Column(
-            children: pageChildren(constraints.biggest.width),
+            children: pageChildren(constraints.biggest.width, context),
           );
         }
       },

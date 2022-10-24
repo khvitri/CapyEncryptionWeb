@@ -83,7 +83,7 @@ class MobileNavbar extends StatelessWidget {
       child: Container(
         child: Column(children: <Widget>[
           Text(
-            "Capybara Entrypt Gang",
+            "Capybara Encrypt Gang",
             style: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
           ),
