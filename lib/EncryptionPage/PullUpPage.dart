@@ -14,27 +14,51 @@ class _PullUpPageState extends State<PullUpPage> {
       double width, BuildContext context, String fileName) {
     return <Widget>[
       Container(
-          width: width,
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                MaterialButton(
-                  color: Color.fromARGB(255, 19, 126, 38),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  onPressed: () {
-                    setState(() async {
-                      file = await Upload().selectFile();
-                    });
-                  },
+        width: width,
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              MaterialButton(
+                //Add LinearGradient, ClickAnimation, ShadowBox
+                color: Color.fromARGB(255, 19, 126, 38),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                onPressed: () {
+                  setState(() async {
+                    file = await Upload().selectFile();
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 100.0, horizontal: 290.0),
                   child: Text(
-                    "Pull Up",
-                    style: TextStyle(color: Colors.white),
+                    "Upload Here",
+                    style: TextStyle(fontSize: 30.0, color: Colors.white),
                   ),
                 ),
-                Text(fileName),
-                Text("Pull Up Files Here"),
-              ]))
+              ),
+              Text(fileName),
+            ]),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        child: Image.asset(
+          "assets/images/llp_image.png",
+          width: width,
+        ),
+      ),
+      Flexible(
+          child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color.fromARGB(255, 95, 55, 2),
+                Color.fromARGB(255, 58, 32, 2)
+              ]),
+        ),
+      ))
     ];
   }
 

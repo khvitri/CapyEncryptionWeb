@@ -19,7 +19,7 @@ class LandingPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Text(
-                "The Capybara community has deemed this online encrytor worthy of 'ok i pull up'.",
+                "The Capybara community has deemed this online encryter worthy of 'ok i pull up'.",
                 style: TextStyle(fontSize: 16.0, color: Colors.white),
               ),
             ),
