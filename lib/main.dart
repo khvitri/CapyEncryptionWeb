@@ -35,8 +35,8 @@ class MyHomePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
               colors: [
                 Color.fromARGB(255, 95, 55, 2),
                 Color.fromARGB(255, 58, 32, 2)
@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
               Navbar(),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    vertical: 20.0, horizontal: 40.0),
+                    vertical: 40.0, horizontal: 80.0),
                 child: LandingPage(),
               )
             ],

@@ -14,30 +14,51 @@ class _PullUpPageState extends State<PullUpPage> {
     late var encrypted_str;
     return <Widget>[
       Container(
+        width: width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            MaterialButton(
+              color: Color.fromARGB(255, 19, 126, 38),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              onPressed: () async {
+                file = await Upload().selectFile();
+                if (file != null) {
+                  txt_to_str = String.fromCharCodes(file.file);
+                  encrypted_str = Encryption.encryptAES(txt_to_str);
+                  //TODO: Upload encrypted_str to firebase
+                  //TODO: Save the key as a text file to their computer
+                }
+                setState(() async {});
+              },
+              child: Text(
+                "Upload Here",
+                style: TextStyle(fontSize: 30.0, color: Colors.white),
+              ),
+            ),
+          ],
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        child: Image.asset(
+          "assets/images/llp_image.png",
           width: width,
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                MaterialButton(
-                  color: Color.fromARGB(255, 19, 126, 38),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  onPressed: () async {
-                    file = await Upload().selectFile();
-                    if (file != null) {
-                      txt_to_str = String.fromCharCodes(file.file);
-                      encrypted_str = Encryption.encryptAES(txt_to_str);
-                      //TODO: Upload encrypted_str to firebase
-                      //TODO: Save the key as a text file to their computer
-                    }
-                    setState(() async {});
-                  },
-                  child: Text(
-                    "Pull Up",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ]))
+        ),
+      ),
+      Flexible(
+          child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color.fromARGB(255, 95, 55, 2),
+                Color.fromARGB(255, 58, 32, 2)
+              ]),
+        ),
+      ))
     ];
   }
 
@@ -59,3 +80,4 @@ class _PullUpPageState extends State<PullUpPage> {
     );
   }
 }
+
