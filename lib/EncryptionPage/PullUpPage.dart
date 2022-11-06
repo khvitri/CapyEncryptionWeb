@@ -28,13 +28,15 @@ class _PullUpPageState extends State<PullUpPage> {
                   txt_to_str = String.fromCharCodes(file.file);
                   encrypted_str = Encryption.encryptAES(txt_to_str);
                   //TODO: Upload encrypted_str to firebase
-                  //TODO: Save the key as a text file to their computer
+                  //TODO: Save the key as a text file to their computer jew
                 }
                 setState(() async {});
               },
-              child: Text(
-                "Upload Here",
-                style: TextStyle(fontSize: 30.0, color: Colors.white),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 20.0, horizontal: 40.0),
+                child: Text("Upload Here",
+                    style: TextStyle(fontSize: 16.0, color: Colors.white)),
               ),
             ),
           ],
@@ -80,4 +82,3 @@ class _PullUpPageState extends State<PullUpPage> {
     );
   }
 }
-
