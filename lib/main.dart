@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webpage/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/Navbar/Navbar.dart';
-import 'EncryptionPage/EncryptionPage.dart';
-import 'EncryptionPage/PullUpPage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "AIzaSyAxjtj6jF6l4aeGTqxKBuEATzRrzvJF8gI",
+          authDomain: "encryption-web.firebaseapp.com",
+          projectId: "encryption-web",
+          storageBucket: "encryption-web.appspot.com",
+          messagingSenderId: "30830924936",
+          appId: "1:30830924936:web:d65b911203d010f7e5bb3d"));
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
