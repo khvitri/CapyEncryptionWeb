@@ -34,22 +34,9 @@ class EncryptionPage extends StatelessWidget {
               ),
             )),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
+              padding: const EdgeInsets.only(top: 20.0, left: 40.0),
               child: PullUpPage(),
             ),
-            Flexible(
-                child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [
-                      Color.fromARGB(255, 95, 55, 2),
-                      Color.fromARGB(255, 58, 32, 2)
-                    ]),
-              ),
-            ))
           ],
         ),
       ),
