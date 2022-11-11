@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Capy Certified Encrypter',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Montserrat"),
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Darlington"),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -46,18 +46,26 @@ class MyHomePage extends StatelessWidget {
                 Color.fromARGB(255, 58, 32, 2)
               ]),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Navbar(),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 40.0, horizontal: 80.0),
-                child: LandingPage(),
-              )
-            ],
-          ),
-        ),
+        child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight,
+              ),
+              child: Column(
+                children: <Widget>[
+                  Navbar(),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 30, right: 80.0, left: 80.0),
+                    child: LandingPage(constraints: constraints),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }),
       ),
     );
   }
