@@ -42,17 +42,11 @@ class _PullUpPageState extends State<PullUpPage> {
           ],
         ),
       ),
-      Flexible(
-        child: Container(
-          height: height,
-          color: Colors.red,
-          child: Align(
-            alignment: Alignment.bottomRight,
-            child: Image.asset(
-              "assets/images/llp_image.png",
-              width: width,
-            ),
-          ),
+      Padding(
+        padding: const EdgeInsets.only(top: 100, right: 60),
+        child: Image.asset(
+          "assets/images/llp_image.png",
+          width: width * 0.5,
         ),
       ),
     ];
