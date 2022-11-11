@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webpage/screens/authenticate/login.dart';
+import 'package:flutter_webpage/screens/home/home.dart';
 
 class Navbar extends StatelessWidget {
   @override
@@ -60,9 +62,12 @@ class DesktopNavbar extends StatelessWidget {
                   color: Color.fromARGB(255, 19, 126, 38),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
+                  },
                   child: Text(
-                    "Pull Up",
+                    "Login/Regsiter",
                     style: TextStyle(color: Colors.white),
                   ),
                 )

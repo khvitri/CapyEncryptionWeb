@@ -3,6 +3,10 @@ import 'package:flutter_webpage/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/Navbar/Navbar.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'services/auth.dart';
+import 'models/FirebaseUser.dart';
+import 'screens/wrapper.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
