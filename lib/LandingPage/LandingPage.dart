@@ -8,10 +8,10 @@ class LandingPage extends StatelessWidget {
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Padding(
-        padding: const EdgeInsets.only(top: 10, left: 50),
+        padding: const EdgeInsets.only(top: 100, right: 60),
         child: Image.asset(
           "assets/images/lp_image.png",
-          width: width * 0.7,
+          width: width * 0.5,
         ),
       ),
       Container(
