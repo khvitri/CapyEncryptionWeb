@@ -25,6 +25,7 @@ class _PullUpPageState extends State<PullUpPage> {
               onPressed: () async {
                 file = await Upload().selectFile();
                 if (file != null) {
+                  // There might be an error with uploading a new text file after the previous one
                   txt_to_str = String.fromCharCodes(file.file);
                   encrypted_str = Encryption.encryptAES(txt_to_str);
                   //TODO: Upload encrypted_str to firebase
