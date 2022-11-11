@@ -7,6 +7,13 @@ class LandingPage extends StatelessWidget {
 
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
+      Padding(
+        padding: const EdgeInsets.only(top: 10, left: 50),
+        child: Image.asset(
+          "assets/images/lp_image.png",
+          width: width * 0.7,
+        ),
+      ),
       Container(
         width: width,
         height: 300,
@@ -49,13 +56,6 @@ class LandingPage extends StatelessWidget {
           ],
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.only(top: 10, left: 50),
-        child: Image.asset(
-          "assets/images/lp_image.png",
-          width: width * 0.7,
-        ),
-      )
     ];
   }
 
