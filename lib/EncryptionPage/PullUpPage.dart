@@ -8,7 +8,7 @@ class PullUpPage extends StatefulWidget {
 }
 
 class _PullUpPageState extends State<PullUpPage> {
-  List<Widget> pageChildren(double width, BuildContext context) {
+  List<Widget> pageChildren(double width, double height, BuildContext context) {
     dynamic file;
     String? txt_to_str;
     late var encrypted_str;
@@ -16,7 +16,7 @@ class _PullUpPageState extends State<PullUpPage> {
       Container(
         width: width,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             MaterialButton(
               color: Color.fromARGB(255, 19, 126, 38),
@@ -42,25 +42,19 @@ class _PullUpPageState extends State<PullUpPage> {
           ],
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
-        child: Image.asset(
-          "assets/images/llp_image.png",
-          width: width,
+      Flexible(
+        child: Container(
+          height: height,
+          color: Colors.red,
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: Image.asset(
+              "assets/images/llp_image.png",
+              width: width,
+            ),
+          ),
         ),
       ),
-      Flexible(
-          child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color.fromARGB(255, 95, 55, 2),
-                Color.fromARGB(255, 58, 32, 2)
-              ]),
-        ),
-      ))
     ];
   }
 
@@ -71,11 +65,13 @@ class _PullUpPageState extends State<PullUpPage> {
         if (constraints.maxWidth > 800) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: pageChildren(constraints.biggest.width / 2, context),
+            children: pageChildren(constraints.biggest.width / 2,
+                constraints.biggest.height, context),
           );
         } else {
           return Column(
-            children: pageChildren(constraints.biggest.width, context),
+            children: pageChildren(
+                constraints.biggest.width, constraints.biggest.height, context),
           );
         }
       },

@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webpage/EncryptionPage/EncryptionPage.dart';
 
 class LandingPage extends StatelessWidget {
+  final BoxConstraints? constraints;
+  LandingPage({this.constraints});
+
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Container(
         width: width,
+        height: 300,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -46,37 +50,25 @@ class LandingPage extends StatelessWidget {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        padding: const EdgeInsets.only(top: 10, left: 50),
         child: Image.asset(
           "assets/images/lp_image.png",
-          width: width,
+          width: width * 0.7,
         ),
       )
-      //Padding(
-      // padding: const EdgeInsets.symmetric(vertical: 20.0),
-      // child: Image.asset(
-      //   "assets/images/lp_image.png",
-      //   width: width,
-      //  ),
-      //  )
     ];
   }
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth > 800) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: pageChildren(constraints.biggest.width / 2, context),
-          );
-        } else {
-          return Column(
-            children: pageChildren(constraints.biggest.width, context),
-          );
-        }
-      },
-    );
+    if (constraints!.maxWidth > 1500) {
+      return Row(
+        children: pageChildren(constraints!.biggest.width / 2, context),
+      );
+    } else {
+      return Column(
+        children: pageChildren(constraints!.biggest.width / 2, context),
+      );
+    }
   }
 }
