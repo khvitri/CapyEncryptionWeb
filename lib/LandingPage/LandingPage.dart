@@ -8,7 +8,7 @@ class LandingPage extends StatelessWidget {
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Padding(
-        padding: const EdgeInsets.only(top: 100, right: 60),
+        padding: const EdgeInsets.only(top: 100, right: 40, left: 40),
         child: Image.asset(
           "assets/images/lp_image.png",
           width: width * 0.5,
@@ -35,7 +35,7 @@ class LandingPage extends StatelessWidget {
               ),
             ),
             MaterialButton(
-              color: Color.fromARGB(255, 19, 126, 38),
+
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               onPressed: () {
@@ -44,12 +44,24 @@ class LandingPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => EncryptionPage()),
                 );
               },
+              child: Ink(
+                decoration : const BoxDecoration(
+      gradient: LinearGradient(
+               colors: [Colors.purple, Colors.blue],
+              begin: Alignment.bottomLeft,
+               end: Alignment.topRight,
+          ),
+
+      borderRadius: BorderRadius.all(Radius.circular(80.0)),
+              ),
+
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: 20.0, horizontal: 40.0),
                 child: Text(
                   "Encrypt Now!",
                   style: TextStyle(color: Colors.white),
+                                ),
                 ),
               ),
             )

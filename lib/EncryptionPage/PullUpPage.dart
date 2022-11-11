@@ -35,7 +35,7 @@ class _PullUpPageState extends State<PullUpPage> {
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                    vertical: 20.0, horizontal: 40.0),
+                    vertical: 20.0, horizontal: 50.0),
                 child: Text("Upload Here",
                     style: TextStyle(fontSize: 16.0, color: Colors.white)),
               ),
@@ -44,10 +44,14 @@ class _PullUpPageState extends State<PullUpPage> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 100, right: 60),
+        padding: const EdgeInsets.only(
+          top: 100,
+          right: 40,
+          left: 5,
+        ),
         child: Image.asset(
           "assets/images/llp_image.png",
-          width: width * 0.5,
+          width: width * 0.8,
         ),
       ),
     ];

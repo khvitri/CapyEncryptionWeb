@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
   final Function? toggleView;
-  Login({this.toggleView});
+  Login({this.toggleView, required BoxConstraints constraints});
 
   @override
   State<StatefulWidget> createState() {
@@ -37,7 +37,7 @@ class _Login extends State<Login> {
           }
         },
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 15.0, 15.0),
             hintText: "Email",
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
@@ -116,7 +116,7 @@ class _Login extends State<Login> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Login Demo Page'),
+        title: const Text('Capybara'),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Column(
