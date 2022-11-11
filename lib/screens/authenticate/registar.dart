@@ -1,4 +1,5 @@
 import 'package:flutter_webpage/models/loginuser.dart';
+import 'package:flutter_webpage/screens/authenticate/login.dart';
 import 'package:flutter_webpage/services/auth.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +70,8 @@ class _Register extends State<Register> {
 
     final txtbutton = TextButton(
         onPressed: () {
-          widget.toggleView!();
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Login()));
         },
         child: const Text('Go to login'));
 

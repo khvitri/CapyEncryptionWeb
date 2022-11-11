@@ -1,4 +1,5 @@
 import 'package:flutter_webpage/models/loginuser.dart';
+import 'package:flutter_webpage/screens/authenticate/registar.dart';
 import 'package:flutter_webpage/screens/home/home.dart';
 import 'package:flutter_webpage/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,8 @@ class _Login extends State<Login> {
 
     final txtbutton = TextButton(
         onPressed: () {
-          widget.toggleView!();
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Register()));
         },
         child: const Text('New? Register here'));
 
