@@ -1,5 +1,7 @@
-import 'package:flutter_webpage/models/loginuser.dart';
-import 'package:flutter_webpage/screens/home/home.dart';
+import 'package:flutter_webpage/EncryptionPage/PullUpPage.dart';
+import 'package:flutter_webpage/LandingPage/LandingPage.dart';
+import 'package:flutter_webpage/DataStructures/loginuser.dart';
+import 'package:flutter_webpage/screens/authenticate/registar.dart';
 import 'package:flutter_webpage/services/auth.dart';
 import 'package:flutter/material.dart';
 
@@ -72,38 +74,10 @@ class _Login extends State<Login> {
 
     final txtbutton = TextButton(
         onPressed: () {
-          widget.toggleView!();
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Register()));
         },
         child: const Text('New? Register here'));
-
-    final loginAnonymousButon = Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Theme.of(context).primaryColor,
-      child: MaterialButton(
-        minWidth: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () async {
-          dynamic result = await _auth.signInAnonymous();
-
-          if (result.uid == null) {
-            //null means unsuccessfull authentication
-            showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    content: Text(result.code),
-                  );
-                });
-          }
-        },
-        child: Text(
-          "Log in Anonymously",
-          style: TextStyle(color: Theme.of(context).primaryColorLight),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
 
     final loginEmailPasswordButon = Material(
       elevation: 5.0,
@@ -125,6 +99,9 @@ class _Login extends State<Login> {
                       content: Text(result.code),
                     );
                   });
+            } else {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => PullUpPage()));
             }
           }
         },
@@ -153,7 +130,6 @@ class _Login extends State<Login> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  loginAnonymousButon,
                   const SizedBox(height: 45.0),
                   emailField,
                   const SizedBox(height: 25.0),

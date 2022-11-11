@@ -4,7 +4,7 @@ import 'package:flutter_webpage/Navbar/Navbar.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'services/auth.dart';
-import 'models/FirebaseUser.dart';
+import 'DataStructures/FirebaseUser.dart';
 import 'screens/wrapper.dart';
 
 void main() async {

@@ -1,4 +1,4 @@
-import 'package:flutter_webpage/models/loginuser.dart';
+import 'package:flutter_webpage/DataStructures/loginuser.dart';
 import 'package:flutter_webpage/services/auth.dart';
 import 'package:flutter/material.dart';
 
