@@ -125,7 +125,7 @@ class _Register extends State<Register> {
         title: const Text(
           'Cyberbara Encryption',
           style: TextStyle(
-              fontFamily: "glitched",
+              fontFamily: 'glitched',
               fontWeight: FontWeight.bold,
               color: Colors.white,
               fontSize: 30),

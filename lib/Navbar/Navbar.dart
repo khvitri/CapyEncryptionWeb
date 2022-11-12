@@ -41,7 +41,7 @@ class DesktopNavbar extends StatelessWidget {
                   blurRadius: 8.0,
                   color: Color.fromARGB(124, 7, 7, 7),
                 ),
-              ], fontFamily: "glitched.ttf", color: Colors.white, fontSize: 30),
+              ], fontFamily: 'glitched', color: Colors.white, fontSize: 30),
             ),
             Row(
               children: <Widget>[
@@ -108,7 +108,7 @@ class MobileNavbar extends StatelessWidget {
                 blurRadius: 8.0,
                 color: Color.fromARGB(124, 7, 7, 7),
               ),
-            ], fontFamily: "glitched", color: Colors.white, fontSize: 30),
+            ], fontFamily: 'glitched', color: Colors.white, fontSize: 30),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
