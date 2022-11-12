@@ -8,10 +8,10 @@ class LandingPage extends StatelessWidget {
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Padding(
-        padding: const EdgeInsets.only(top: 100, right: 40, left: 40),
+        padding: const EdgeInsets.only(top: 100, right: 10, left: 10),
         child: Image.asset(
           "assets/images/lp_image.png",
-          width: width * 0.5,
+          width: width * 0.7,
         ),
       ),
       Container(
@@ -35,7 +35,6 @@ class LandingPage extends StatelessWidget {
               ),
             ),
             MaterialButton(
-
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               onPressed: () {
@@ -45,23 +44,21 @@ class LandingPage extends StatelessWidget {
                 );
               },
               child: Ink(
-                decoration : const BoxDecoration(
-      gradient: LinearGradient(
-               colors: [Colors.purple, Colors.blue],
-              begin: Alignment.bottomLeft,
-               end: Alignment.topRight,
-          ),
-
-      borderRadius: BorderRadius.all(Radius.circular(80.0)),
-              ),
-
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 20.0, horizontal: 40.0),
-                child: Text(
-                  "Encrypt Now!",
-                  style: TextStyle(color: Colors.white),
-                                ),
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.purple, Colors.blue],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 40),
+                  child: Text(
+                    "Encrypt Now!",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             )

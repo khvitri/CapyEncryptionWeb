@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webpage/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/Navbar/Navbar.dart';
-import 'package:flutter_webpage/screens/authenticate/Login.dart';
-import 'package:flutter_webpage/screens/authenticate/Registar.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'services/auth.dart';

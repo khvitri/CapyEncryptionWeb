@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webpage/screens/authenticate/login.dart';
+import 'package:flutter_webpage/screens/authenticate/Login.dart';
 import 'package:flutter_webpage/screens/home/home.dart';
 
 class Navbar extends StatelessWidget {

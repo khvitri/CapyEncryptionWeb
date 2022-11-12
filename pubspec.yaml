@@ -52,6 +52,8 @@ flutter:
     - assets/images/lp_image.png
     - assets/images/llp_image.png
     - assets/images/pl_gif.gif
+    - assets/images/bigdaddy_image.png
+    - assets/images/logo_image.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

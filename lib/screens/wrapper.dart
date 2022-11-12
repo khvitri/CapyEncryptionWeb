@@ -3,7 +3,7 @@ import '../screens/home/home.dart';
 import 'package:flutter/material.dart';
 
 import '../DataStructures/FirebaseUser.dart';
-import 'authenticate/handler.dart';
+import 'package:flutter_webpage/screens/authenticate/Handler.dart';
 
 class Wrapper extends StatelessWidget {
   @override
