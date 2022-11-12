@@ -13,7 +13,6 @@ class PullUpPage extends StatefulWidget {
 class _PullUpPageState extends State<PullUpPage> {
   List<Widget> pageChildren(
       double width, double height, FirebaseUser? user, BuildContext context) {
-    print(user!.uid);
     dynamic file;
     String? txt_to_str;
     TextFiles encrypted_file;

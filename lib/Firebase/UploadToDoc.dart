@@ -20,7 +20,7 @@ class Upload {
   //User upload the encrypted text file to firebase
   // UID TextFiles -> Future
   Future uploadFile(String? uid, TextFiles encryptFile) async {
-    final data = {encryptFile.name: encryptFile.file} as Map<String, String>;
+    final Map<String, String> data = {encryptFile.name: encryptFile.file};
     return await FirebaseFirestore.instance
         .collection('users')
         .doc(uid)

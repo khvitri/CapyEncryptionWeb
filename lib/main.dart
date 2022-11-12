@@ -3,10 +3,6 @@ import 'package:flutter_webpage/Screens/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/Screens/Navbar/Navbar.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'Firebase/FAuthentication.dart';
-import 'DataStructures/FirebaseUser.dart';
-import 'Screens/Redirect.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(

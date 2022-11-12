@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../DataStructures/FirebaseUser.dart';
+import '../../Firebase/FAuthentication.dart';
 import '../Navbar/Navbar.dart';
 import 'PullUpPage.dart';
 
@@ -35,7 +38,10 @@ class EncryptionPage extends StatelessWidget {
             )),
             Padding(
               padding: const EdgeInsets.only(top: 20.0, left: 40.0),
-              child: PullUpPage(),
+              child: StreamProvider<FirebaseUser?>.value(
+                  initialData: null,
+                  value: AuthService().user,
+                  child: PullUpPage()),
             ),
           ],
         ),

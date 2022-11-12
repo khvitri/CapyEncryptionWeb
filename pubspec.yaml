@@ -34,6 +34,9 @@ dependencies:
   #pick file
   file_picker: ^5.2.2
 
+  #Spinning UI
+  flutter_spinkit: ^5.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
