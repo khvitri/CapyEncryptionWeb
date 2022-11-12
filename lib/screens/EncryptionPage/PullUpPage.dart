@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webpage/DataStructures/text_files.dart';
 import 'package:flutter_webpage/Functions/Encrypt.dart';
 import 'package:flutter_webpage/Firebase/UploadToDoc.dart';
+import 'package:flutter_webpage/Screens/Loading/Loading.dart';
 import 'package:provider/provider.dart';
 import '../../DataStructures/FirebaseUser.dart';
 
@@ -11,8 +12,8 @@ class PullUpPage extends StatefulWidget {
 }
 
 class _PullUpPageState extends State<PullUpPage> {
-  List<Widget> pageChildren(
-      double width, double height, FirebaseUser? user, BuildContext context) {
+  List<Widget> pageChildren(double width, double height, FirebaseUser? user,
+      List<TextFiles>? textfirefiles, BuildContext context) {
     dynamic file;
     String? txt_to_str;
     TextFiles encrypted_file;
@@ -22,6 +23,21 @@ class _PullUpPageState extends State<PullUpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            // TO DO: Build a list of text files here
+            // TO DO: Read database info of the use
+            Container(
+              color: Colors.white,
+              height: 500,
+              child: ListView.separated(
+                  separatorBuilder: (context, index) =>
+                      Divider(color: Colors.black),
+                  itemCount: textfirefiles!.length,
+                  itemBuilder: ((context, index) {
+                    return ListTile(
+                        title: Text('${textfirefiles[index].name}'),
+                        leading: Icon(Icons.file_present));
+                  })),
+            ),
             MaterialButton(
               color: Color.fromARGB(255, 19, 126, 38),
               shape: RoundedRectangleBorder(
@@ -29,13 +45,11 @@ class _PullUpPageState extends State<PullUpPage> {
               onPressed: () async {
                 file = await Upload().selectFile();
                 if (file != null) {
-                  // There might be an error with uploading a new text file after the previous one
                   txt_to_str = file.file;
                   encrypted_file = TextFiles(file.name,
                       Encryption.encryptAES(txt_to_str).base64 as String);
-                  //TODO: Upload encrypted_str to firebase
                   Upload().uploadFile(user!.uid, encrypted_file);
-                  //TODO: Save the key as a text file to their computer jew
+                  //TO DO: Save the key as a text file to their computer
                 }
               },
               child: Padding(
@@ -61,21 +75,26 @@ class _PullUpPageState extends State<PullUpPage> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<FirebaseUser?>(context);
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth > 800) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: pageChildren(constraints.biggest.width / 2,
-                constraints.biggest.height, user, context),
-          );
-        } else {
-          return Column(
-            children: pageChildren(constraints.biggest.width,
-                constraints.biggest.height, user, context),
-          );
-        }
-      },
-    );
+    final textfirefiles = Provider.of<List<TextFiles>?>(context);
+    if ((user != null) & (textfirefiles != null)) {
+      return LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth > 800) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: pageChildren(constraints.biggest.width / 2,
+                  constraints.biggest.height, user, textfirefiles, context),
+            );
+          } else {
+            return Column(
+              children: pageChildren(constraints.biggest.width,
+                  constraints.biggest.height, user, textfirefiles, context),
+            );
+          }
+        },
+      );
+    } else {
+      return Loading();
+    }
   }
 }

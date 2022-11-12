@@ -1,8 +1,6 @@
-import 'package:flutter_webpage/Screens/EncryptionPage/PullUpPage.dart';
 import 'package:flutter_webpage/DataStructures/loginuser.dart';
-import 'package:flutter_webpage/Screens/Navbar/Navbar.dart';
 import 'package:flutter_webpage/Screens/AuthenticationPage/registar.dart';
-import 'package:flutter_webpage/Firebase/FAuthentication.dart';
+import 'package:flutter_webpage/Firebase/AuthFire.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {

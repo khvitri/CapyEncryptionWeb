@@ -1,7 +1,8 @@
-import 'package:flutter_webpage/Firebase/FAuthentication.dart';
+import 'package:flutter_webpage/Firebase/AuthFire.dart';
 import 'package:flutter_webpage/Screens/AuthenticationPage/Login.dart';
 import 'package:flutter_webpage/Screens/EncryptionPage/EncryptionPage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../DataStructures/FirebaseUser.dart';
 import 'Loading/Loading.dart';
 
@@ -15,7 +16,10 @@ class Wrapper extends StatelessWidget {
             return Loading();
           }
           if (snapshot.data != null) {
-            return EncryptionPage();
+            return StreamProvider<FirebaseUser?>.value(
+                value: AuthService().user,
+                initialData: null,
+                child: EncryptionPage());
           } else {
             return Login();
           }

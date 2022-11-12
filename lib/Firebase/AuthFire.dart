@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_webpage/Firebase/CreateFireDoc.dart';
 import '../DataStructures/loginuser.dart';
 import '../DataStructures/FirebaseUser.dart';
 
@@ -48,6 +49,7 @@ class AuthService {
               email: _login.email.toString(),
               password: _login.password.toString());
       User? user = userCredential.user;
+      CreateFireDoc(user!.uid).createUserData();
       return _firebaseUser(user);
     } on FirebaseAuthException catch (e) {
       return FirebaseUser(code: e.code, uid: null);

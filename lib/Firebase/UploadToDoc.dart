@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Upload {
   //User selects their text file
+  //TO DO: Check if it is a text file or not
   Future selectFile() async {
     FilePickerResult? pickedFile = await FilePicker.platform.pickFiles();
 
@@ -18,12 +19,14 @@ class Upload {
   }
 
   //User upload the encrypted text file to firebase
-  // UID TextFiles -> Future
+  // TO DO: Prevent uploading files with the same names
   Future uploadFile(String? uid, TextFiles encryptFile) async {
     final Map<String, String> data = {encryptFile.name: encryptFile.file};
     return await FirebaseFirestore.instance
         .collection('users')
         .doc(uid)
-        .set(data, SetOptions(merge: true));
+        .update({
+      'files': FieldValue.arrayUnion([data])
+    });
   }
 }

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webpage/DataStructures/text_files.dart';
+import 'package:flutter_webpage/Firebase/ReadFireDoc.dart';
 import 'package:provider/provider.dart';
 import '../../DataStructures/FirebaseUser.dart';
-import '../../Firebase/FAuthentication.dart';
+import '../../Firebase/AuthFire.dart';
 import '../Navbar/Navbar.dart';
 import 'PullUpPage.dart';
 
 class EncryptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<FirebaseUser?>(context);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -38,10 +41,18 @@ class EncryptionPage extends StatelessWidget {
             )),
             Padding(
               padding: const EdgeInsets.only(top: 20.0, left: 40.0),
-              child: StreamProvider<FirebaseUser?>.value(
-                  initialData: null,
+              child: MultiProvider(providers: [
+                StreamProvider<FirebaseUser?>.value(
                   value: AuthService().user,
-                  child: PullUpPage()),
+                  initialData: null,
+                  catchError: (context, error) => null,
+                ),
+                StreamProvider<List<TextFiles>?>.value(
+                  value: ReadFireDoc(user?.uid).firetextfiles,
+                  initialData: null,
+                  catchError: (context, error) => null,
+                ),
+              ], child: PullUpPage()),
             ),
           ],
         ),
