@@ -29,11 +29,19 @@ class DesktopNavbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
-              "Capybara Entrypt Gang",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 30),
+              "Cyberbara Encryption",
+              style: TextStyle(shadows: <Shadow>[
+                Shadow(
+                  offset: Offset(5.0, 5.0),
+                  blurRadius: 5.0,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+                Shadow(
+                  offset: Offset(10.0, 10.0),
+                  blurRadius: 8.0,
+                  color: Color.fromARGB(124, 7, 7, 7),
+                ),
+              ], fontFamily: "glitched.ttf", color: Colors.white, fontSize: 30),
             ),
             Row(
               children: <Widget>[
@@ -84,13 +92,23 @@ class MobileNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 80),
       child: Container(
         child: Column(children: <Widget>[
           Text(
-            "Capybara Encrypt Gang",
-            style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
+            "Cyberbara Encryption",
+            style: TextStyle(shadows: <Shadow>[
+              Shadow(
+                offset: Offset(5.0, 5.0),
+                blurRadius: 5.0,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              Shadow(
+                offset: Offset(10.0, 10.0),
+                blurRadius: 8.0,
+                color: Color.fromARGB(124, 7, 7, 7),
+              ),
+            ], fontFamily: "glitched", color: Colors.white, fontSize: 30),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),

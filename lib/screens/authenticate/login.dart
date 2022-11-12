@@ -60,7 +60,8 @@ class _Login extends State<Login> {
         },
         decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color.fromARGB(225, 4, 225, 12))),
+                borderSide: BorderSide( 
+                  color: Color.fromARGB(225, 4, 225, 12))),
             hoverColor: Color.fromARGB(255, 4, 255, 12),
             contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             hintText: "e.g. kapibarasan1234!",
@@ -72,7 +73,7 @@ class _Login extends State<Login> {
                   _obscureText = !_obscureText;
                 });
               },
-            ),
+            ),    
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
             )));
@@ -129,7 +130,7 @@ class _Login extends State<Login> {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 35, 94, 31),
         title: const Text(
-          'Capybara Entrypt Gang',
+          'Cyberbara',
           style: TextStyle(
               fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
         ),
@@ -149,16 +150,45 @@ class _Login extends State<Login> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  // borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    width: 0.1,
+                    color: Color.fromARGB(255, 24, 23, 23),
+                    strokeAlign: StrokeAlign.outside,
+                  ),
+               boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(251, 20, 23, 21),
+                      offset: const Offset(
+                        15.0,
+                        15.0,
+                      ),
+                      blurRadius: 20.0,
+                      spreadRadius: 5.0,
+                    ), //BoxShadow
+                    BoxShadow(
+                      color: Colors.white,
+                      offset: const Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ),
+                  ],
+                ),
               child: Image.asset(
                 "assets/images/bigdaddy_image.png",
                 width: 300,
                 height: 300,
               ),
             ),
+            ),
             Form(
               key: _formKey,
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 200),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,

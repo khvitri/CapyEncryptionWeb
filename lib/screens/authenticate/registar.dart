@@ -123,7 +123,7 @@ class _Register extends State<Register> {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 35, 94, 31),
         title: const Text(
-          'Capybara Encrypt Gang',
+          'Cyberbara',
           style: TextStyle(
               fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
         ),
@@ -154,7 +154,7 @@ class _Register extends State<Register> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(253, 14, 217, 82),
+                      color: Color.fromARGB(251, 20, 23, 21),
                       offset: const Offset(
                         15.0,
                         15.0,
@@ -180,7 +180,8 @@ class _Register extends State<Register> {
               autovalidateMode: AutovalidateMode.always,
               key: _formKey,
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 200),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
