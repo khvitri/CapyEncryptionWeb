@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webpage/DataStructures/text_files.dart';
 import 'package:flutter_webpage/Functions/Encrypt.dart';
-import 'package:flutter_webpage/Functions/Upload.dart';
+import 'package:flutter_webpage/Firebase/UploadToDoc.dart';
+import 'package:provider/provider.dart';
+import '../../DataStructures/FirebaseUser.dart';
 
 class PullUpPage extends StatefulWidget {
   @override
@@ -8,10 +11,12 @@ class PullUpPage extends StatefulWidget {
 }
 
 class _PullUpPageState extends State<PullUpPage> {
-  List<Widget> pageChildren(double width, double height, BuildContext context) {
+  List<Widget> pageChildren(
+      double width, double height, FirebaseUser? user, BuildContext context) {
+    print(user!.uid);
     dynamic file;
     String? txt_to_str;
-    late var encrypted_str;
+    TextFiles encrypted_file;
     return <Widget>[
       Container(
         width: width,
@@ -26,12 +31,13 @@ class _PullUpPageState extends State<PullUpPage> {
                 file = await Upload().selectFile();
                 if (file != null) {
                   // There might be an error with uploading a new text file after the previous one
-                  txt_to_str = String.fromCharCodes(file.file);
-                  encrypted_str = Encryption.encryptAES(txt_to_str);
+                  txt_to_str = file.file;
+                  encrypted_file = TextFiles(file.name,
+                      Encryption.encryptAES(txt_to_str).base64 as String);
                   //TODO: Upload encrypted_str to firebase
+                  Upload().uploadFile(user!.uid, encrypted_file);
                   //TODO: Save the key as a text file to their computer jew
                 }
-                setState(() async {});
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(
@@ -55,18 +61,19 @@ class _PullUpPageState extends State<PullUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<FirebaseUser?>(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: pageChildren(constraints.biggest.width / 2,
-                constraints.biggest.height, context),
+                constraints.biggest.height, user, context),
           );
         } else {
           return Column(
-            children: pageChildren(
-                constraints.biggest.width, constraints.biggest.height, context),
+            children: pageChildren(constraints.biggest.width,
+                constraints.biggest.height, user, context),
           );
         }
       },

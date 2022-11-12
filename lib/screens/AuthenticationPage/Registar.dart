@@ -1,28 +1,25 @@
-import 'package:flutter_webpage/EncryptionPage/PullUpPage.dart';
-import 'package:flutter_webpage/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/DataStructures/loginuser.dart';
-import 'package:flutter_webpage/screens/authenticate/registar.dart';
-import 'package:flutter_webpage/services/auth.dart';
+import 'package:flutter_webpage/Screens/AuthenticationPage/Login.dart';
+import 'package:flutter_webpage/Firebase/FAuthentication.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   final Function? toggleView;
-  Login({this.toggleView});
+  Register({this.toggleView});
 
   @override
   State<StatefulWidget> createState() {
-    return _Login();
+    return _Register();
   }
 }
 
-class _Login extends State<Login> {
-  bool _obscureText = true;
+class _Register extends State<Register> {
+  final AuthService _auth = new AuthService();
 
+  bool _obscureText = true;
   final _email = TextEditingController();
   final _password = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final AuthService _auth = new AuthService();
-
   @override
   Widget build(BuildContext context) {
     final emailField = TextFormField(
@@ -37,7 +34,7 @@ class _Login extends State<Login> {
           }
         },
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             hintText: "Email",
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
@@ -68,18 +65,17 @@ class _Login extends State<Login> {
                 });
               },
             ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32.0),
-            )));
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
 
     final txtbutton = TextButton(
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Register()));
+              context, MaterialPageRoute(builder: (context) => Login()));
         },
-        child: const Text('New? Register here'));
+        child: const Text('Go to login'));
 
-    final loginEmailPasswordButon = Material(
+    final registerButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
       color: Theme.of(context).primaryColor,
@@ -88,7 +84,7 @@ class _Login extends State<Login> {
         padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () async {
           if (_formKey.currentState!.validate()) {
-            dynamic result = await _auth.signInEmailPassword(
+            dynamic result = await _auth.registerEmailPassword(
                 LoginUser(email: _email.text, password: _password.text));
             if (result.uid == null) {
               //null means unsuccessfull authentication
@@ -99,14 +95,11 @@ class _Login extends State<Login> {
                       content: Text(result.code),
                     );
                   });
-            } else {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PullUpPage()));
             }
           }
         },
         child: Text(
-          "Log in",
+          "Register",
           style: TextStyle(color: Theme.of(context).primaryColorLight),
           textAlign: TextAlign.center,
         ),
@@ -116,13 +109,14 @@ class _Login extends State<Login> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Login Demo Page'),
+        title: const Text('Registration Demo Page'),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Form(
+            autovalidateMode: AutovalidateMode.always,
             key: _formKey,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -134,9 +128,10 @@ class _Login extends State<Login> {
                   emailField,
                   const SizedBox(height: 25.0),
                   passwordField,
+                  const SizedBox(height: 25.0),
                   txtbutton,
                   const SizedBox(height: 35.0),
-                  loginEmailPasswordButon,
+                  registerButton,
                   const SizedBox(height: 15.0),
                 ],
               ),
