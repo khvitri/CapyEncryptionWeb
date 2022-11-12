@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class Login extends StatefulWidget {
   final Function? toggleView;
   Login({this.toggleView});
-
   @override
   State<StatefulWidget> createState() {
     return _Login();
@@ -35,10 +34,13 @@ class _Login extends State<Login> {
           }
         },
         decoration: InputDecoration(
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color.fromARGB(225, 4, 225, 12))),
+            hoverColor: Color.fromARGB(255, 4, 255, 12),
             contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Email",
+            hintText: "e.g. kapibarasan@popeyes.com",
             border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
+                OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))));
 
     final passwordField = TextFormField(
         obscureText: _obscureText,
@@ -55,8 +57,11 @@ class _Login extends State<Login> {
           return null;
         },
         decoration: InputDecoration(
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color.fromARGB(225, 4, 225, 12))),
+            hoverColor: Color.fromARGB(255, 4, 255, 12),
             contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Password",
+            hintText: "e.g. kapibarasan1234!",
             suffixIcon: IconButton(
               icon:
                   Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
@@ -67,7 +72,7 @@ class _Login extends State<Login> {
               },
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32.0),
+              borderRadius: BorderRadius.circular(10.0),
             )));
 
     final txtbutton = TextButton(
@@ -75,12 +80,15 @@ class _Login extends State<Login> {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Register()));
         },
-        child: const Text('New? Register here'));
+        child: const Text(
+          'Not a Capymember? Register here',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+        ));
 
     final loginEmailPasswordButon = Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Theme.of(context).primaryColor,
+      borderRadius: BorderRadius.circular(10.0),
+      color: Color.fromARGB(255, 19, 126, 38),
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -104,15 +112,26 @@ class _Login extends State<Login> {
         },
         child: Text(
           "Log in",
-          style: TextStyle(color: Theme.of(context).primaryColorLight),
+          style: TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
           textAlign: TextAlign.center,
         ),
       ),
     );
 
+    //GUI starts here
     return Scaffold(
       appBar: AppBar(
-        title: Title(color: Colors.white, child: Text("Login")),
+        backgroundColor: Color.fromARGB(255, 35, 94, 31),
+        title: const Text(
+          'Cyberbara Encryption',
+          style: TextStyle(
+              fontFamily: "glitched",
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: 30),
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -128,25 +147,59 @@ class _Login extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 30, right: 80.0, left: 80.0),
-              child: Form(
-                key: _formKey,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const SizedBox(height: 45.0),
-                      emailField,
-                      const SizedBox(height: 25.0),
-                      passwordField,
-                      txtbutton,
-                      const SizedBox(height: 35.0),
-                      loginEmailPasswordButon,
-                      const SizedBox(height: 15.0),
-                    ],
+              padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  // borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    width: 0.1,
+                    color: Color.fromARGB(255, 24, 23, 23),
+                    strokeAlign: StrokeAlign.outside,
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(251, 20, 23, 21),
+                      offset: const Offset(
+                        15.0,
+                        15.0,
+                      ),
+                      blurRadius: 20.0,
+                      spreadRadius: 5.0,
+                    ), //BoxShadow
+                    BoxShadow(
+                      color: Colors.white,
+                      offset: const Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  "assets/images/bigdaddy_image.png",
+                  width: 300,
+                  height: 300,
+                ),
+              ),
+            ),
+            Form(
+              key: _formKey,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 200),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const SizedBox(height: 45.0),
+                    emailField,
+                    const SizedBox(height: 25.0),
+                    passwordField,
+                    txtbutton,
+                    const SizedBox(height: 35.0),
+                    loginEmailPasswordButon,
+                    const SizedBox(height: 15.0),
+                  ],
                 ),
               ),
             ),

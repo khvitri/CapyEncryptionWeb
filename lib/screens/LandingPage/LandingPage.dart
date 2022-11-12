@@ -8,11 +8,40 @@ class LandingPage extends StatelessWidget {
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Padding(
-        padding: const EdgeInsets.only(top: 100, right: 60),
+        padding: const EdgeInsets.only(top: 70, right: 30, left: 30, bottom: 30),
+        child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  // borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    width: 8,
+                    color: Color.fromARGB(255, 24, 23, 23),
+                    strokeAlign: StrokeAlign.outside,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(251, 20, 23, 21),
+                      offset: const Offset(
+                        15.0,
+                        15.0,
+                      ),
+                      blurRadius: 20.0,
+                      spreadRadius: 5.0,
+                    ), //BoxShadow
+                    BoxShadow(
+                      color: Colors.white,
+                      offset: const Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ),
+                  ],
+                ),
         child: Image.asset(
           "assets/images/lp_image.png",
-          width: width * 0.5,
+          //width: width * 0.7,
+          fit: BoxFit.cover,
         ),
+      ),
       ),
       Container(
         width: width,
@@ -35,7 +64,6 @@ class LandingPage extends StatelessWidget {
               ),
             ),
             MaterialButton(
-              color: Color.fromARGB(255, 19, 126, 38),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               onPressed: () {
@@ -44,12 +72,22 @@ class LandingPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => Wrapper()),
                 );
               },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 20.0, horizontal: 40.0),
-                child: Text(
-                  "Encrypt Now!",
-                  style: TextStyle(color: Colors.white),
+              child: Ink(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.purple, Colors.blue],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 40),
+                  child: Text(
+                    "Encrypt Now!",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             )
