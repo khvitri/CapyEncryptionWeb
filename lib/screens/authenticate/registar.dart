@@ -123,9 +123,12 @@ class _Register extends State<Register> {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 35, 94, 31),
         title: const Text(
-          'Cyberbara',
+          'Cyberbara Encryption',
           style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
+              fontFamily: "glitched",
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: 30),
         ),
       ),
       body: Container(
@@ -180,8 +183,8 @@ class _Register extends State<Register> {
               autovalidateMode: AutovalidateMode.always,
               key: _formKey,
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                      vertical: 20.0, horizontal: 200),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 200),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
