@@ -1,8 +1,6 @@
-import 'package:flutter_webpage/EncryptionPage/PullUpPage.dart';
-import 'package:flutter_webpage/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/DataStructures/loginuser.dart';
-import 'package:flutter_webpage/screens/authenticate/registar.dart';
-import 'package:flutter_webpage/services/auth.dart';
+import 'package:flutter_webpage/Screens/AuthenticationPage/registar.dart';
+import 'package:flutter_webpage/Firebase/AuthFire.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -108,8 +106,7 @@ class _Login extends State<Login> {
                     );
                   });
             } else {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PullUpPage()));
+              Navigator.pop(context);
             }
           }
         },
@@ -125,7 +122,6 @@ class _Login extends State<Login> {
 
     //GUI starts here
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 35, 94, 31),
         title: const Text(

@@ -1,6 +1,6 @@
 import 'package:flutter_webpage/DataStructures/loginuser.dart';
-import 'package:flutter_webpage/screens/authenticate/login.dart';
-import 'package:flutter_webpage/services/auth.dart';
+import 'package:flutter_webpage/Screens/AuthenticationPage/Login.dart';
+import 'package:flutter_webpage/Firebase/AuthFire.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {

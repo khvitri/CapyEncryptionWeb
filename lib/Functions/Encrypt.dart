@@ -7,9 +7,6 @@ class Encryption {
 
   static encryptAES(text) {
     final encrypted = encrypter.encrypt(text, iv: iv);
-
-    print(encrypted.bytes);
-    print(encrypted.base64);
     return encrypted;
   }
 

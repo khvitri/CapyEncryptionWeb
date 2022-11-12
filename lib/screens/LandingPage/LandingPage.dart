@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webpage/EncryptionPage/EncryptionPage.dart';
+import 'package:flutter_webpage/Screens/Redirect.dart';
 
 class LandingPage extends StatelessWidget {
   final BoxConstraints? constraints;
@@ -70,7 +70,7 @@ class LandingPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => EncryptionPage()),
+                  MaterialPageRoute(builder: (context) => Wrapper()),
                 );
               },
               child: Ink(

@@ -1,7 +1,5 @@
-import 'dart:typed_data';
-
 class TextFiles {
-  Uint8List? file;
-  String? name;
-  TextFiles(this.file, this.name);
+  String name;
+  String file;
+  TextFiles(this.name, this.file);
 }

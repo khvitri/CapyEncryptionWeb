@@ -1,4 +1,4 @@
-import 'package:flutter_webpage/services/auth.dart';
+import 'package:flutter_webpage/Firebase/AuthFire.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
