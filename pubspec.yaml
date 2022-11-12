@@ -75,7 +75,11 @@ flutter:
       fonts:
         - asset: assets/fonts/Montserrat-Bold.ttf
         - asset: assets/fonts/Montserrat-Regular.ttf
+   - family: Darlington
+      fonts:
         - asset: assets/fonts/Darlington.ttf
+   - family: glitched
+      fonts:
         - asset: assets/fonts/glitched.ttf
   #         style: italic
   #   - family: Trajan Pro
