@@ -36,9 +36,13 @@ class _Register extends State<Register> {
         decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Color.fromARGB(225, 4, 225, 12))),
-            hoverColor: Color.fromARGB(255, 4, 255, 12),
+            // hoverColor: Color.fromARGB(255, 4, 255, 12),
             contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             hintText: "e.g. kapibarasan1234!",
+            hintStyle: TextStyle(color: Color.fromARGB(54, 99, 96, 96)),
+            labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+            fillColor: Color.fromARGB(223, 255, 255, 255),
+            filled: true,
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(10.0))));
 
@@ -59,9 +63,13 @@ class _Register extends State<Register> {
         decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Color.fromARGB(225, 4, 225, 12))),
-            hoverColor: Color.fromARGB(255, 4, 255, 12),
+            // hoverColor: Color.fromARGB(255, 4, 255, 12),
             contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             hintText: "e.g. kapibarasan1234!",
+            hintStyle: TextStyle(color: Color.fromARGB(54, 99, 96, 96)),
+            labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+            fillColor: Color.fromARGB(223, 255, 255, 255),
+            filled: true,
             suffixIcon: IconButton(
               icon:
                   Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
@@ -81,7 +89,7 @@ class _Register extends State<Register> {
         },
         child: const Text(
           'Go login our new capyfriend!',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
         ));
 
     final registerButton = Material(
@@ -125,7 +133,19 @@ class _Register extends State<Register> {
         title: const Text(
           'Cyberbara Encryption',
           style: TextStyle(
-              fontFamily: 'glitched',
+              shadows: <Shadow>[
+                Shadow(
+                  offset: Offset(5.0, 5.0),
+                  blurRadius: 5.0,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+                Shadow(
+                  offset: Offset(10.0, 10.0),
+                  blurRadius: 8.0,
+                  color: Color.fromARGB(124, 7, 7, 7),
+                ),
+              ],
+              fontFamily: 'Glitched',
               fontWeight: FontWeight.bold,
               color: Colors.white,
               fontSize: 30),
@@ -139,7 +159,7 @@ class _Register extends State<Register> {
               colors: [
                 Color.fromARGB(255, 95, 55, 2),
                 Color.fromARGB(255, 58, 32, 2)
-              ]),
+              ]),  
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

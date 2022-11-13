@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Capy Certified Encrypter',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Darlington"),
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Revamped"),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
