@@ -53,6 +53,7 @@ class _PullUpPageState extends State<PullUpPage> {
                     );
                   })),
             ),
+            SizedBox(height: 20),
             MaterialButton(
               color: Color.fromARGB(255, 19, 126, 38),
               shape: RoundedRectangleBorder(
@@ -79,9 +80,37 @@ class _PullUpPageState extends State<PullUpPage> {
       ),
       Padding(
         padding: const EdgeInsets.only(top: 100, right: 60),
-        child: Image.asset(
-          "assets/images/llp_image.png",
-          width: width * 0.5,
+        child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            // borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              width: 0.1,
+              color: Color.fromARGB(255, 24, 23, 23),
+              strokeAlign: StrokeAlign.outside,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(251, 20, 23, 21),
+                offset: const Offset(
+                  15.0,
+                  15.0,
+                ),
+                blurRadius: 20.0,
+                spreadRadius: 5.0,
+              ), //BoxShadow
+              BoxShadow(
+                color: Colors.white,
+                offset: const Offset(0.0, 0.0),
+                blurRadius: 0.0,
+                spreadRadius: 0.0,
+              ),
+            ],
+          ),
+          child: Image.asset(
+            "assets/images/llp_image.png",
+            width: width * 0.7,
+          ),
         ),
       ),
     ];
