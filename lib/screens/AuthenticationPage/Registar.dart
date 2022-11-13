@@ -84,8 +84,7 @@ class _Register extends State<Register> {
 
     final txtbutton = TextButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Login()));
+          Navigator.pop(context);
         },
         child: const Text(
           'Go login our new capyfriend!',

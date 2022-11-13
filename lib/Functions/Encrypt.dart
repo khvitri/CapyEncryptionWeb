@@ -11,6 +11,6 @@ class Encryption {
   }
 
   static decryptAES(text) {
-    return encrypter.decrypt(text, iv: iv);
+    return encrypter.decrypt64(text, iv: iv);
   }
 }

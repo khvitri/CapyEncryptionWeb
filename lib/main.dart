@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webpage/Screens/LandingPage/LandingPage.dart';
 import 'package:flutter_webpage/Screens/Navbar/Navbar.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_webpage/screens/AuthenticationPage/Login.dart';
+import 'package:flutter_webpage/screens/AuthenticationPage/Registar.dart';
+import 'package:flutter_webpage/screens/EncryptionPage/EncryptionPage.dart';
+import 'package:provider/provider.dart';
+import 'DataStructures/FirebaseUser.dart';
+import 'Firebase/AuthFire.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +29,11 @@ class MyApp extends StatelessWidget {
       title: 'Capy Certified Encrypter',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Revamped"),
       home: MyHomePage(),
+      routes: {
+        '/log_in': (context) => Login(),
+        '/register': (context) => Register(),
+        '/encryption': (context) => EncryptionPage(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
@@ -51,7 +62,10 @@ class MyHomePage extends StatelessWidget {
               ),
               child: Column(
                 children: <Widget>[
-                  Navbar(),
+                  StreamProvider<FirebaseUser?>.value(
+                      value: AuthService().user,
+                      initialData: null,
+                      child: Navbar()),
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 30, right: 80.0, left: 80.0),
