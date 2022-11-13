@@ -75,8 +75,18 @@ flutter:
       fonts:
         - asset: assets/fonts/Montserrat-Bold.ttf
         - asset: assets/fonts/Montserrat-Regular.ttf
-        - asset: assets/fonts/Darlington.ttf
-        - asset: assets/fonts/glitched.ttf
+    - family: Darlington
+      fonts:
+          - asset: assets/fonts/Darlington-Regular.ttf
+    - family: Glitched
+      fonts:
+         - asset: assets/fonts/glitched-Regular.ttf
+    - family: Revamped
+      fonts:
+         - asset: assets/fonts/Revamped-Regular.ttf
+    - family: Noice
+      fonts:
+         - asset: assets/fonts/Noice-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

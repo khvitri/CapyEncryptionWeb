@@ -8,40 +8,41 @@ class LandingPage extends StatelessWidget {
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
       Padding(
-        padding: const EdgeInsets.only(top: 70, right: 30, left: 30, bottom: 30),
+        padding:
+            const EdgeInsets.only(top: 70, right: 30, left: 30, bottom: 30),
         child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  // borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    width: 8,
-                    color: Color.fromARGB(255, 24, 23, 23),
-                    strokeAlign: StrokeAlign.outside,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromARGB(251, 20, 23, 21),
-                      offset: const Offset(
-                        15.0,
-                        15.0,
-                      ),
-                      blurRadius: 20.0,
-                      spreadRadius: 5.0,
-                    ), //BoxShadow
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: const Offset(0.0, 0.0),
-                      blurRadius: 0.0,
-                      spreadRadius: 0.0,
-                    ),
-                  ],
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            // borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              width: 8,
+              color: Color.fromARGB(255, 24, 23, 23),
+              strokeAlign: StrokeAlign.outside,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(251, 20, 23, 21),
+                offset: const Offset(
+                  15.0,
+                  15.0,
                 ),
-        child: Image.asset(
-          "assets/images/lp_image.png",
-          //width: width * 0.7,
-          fit: BoxFit.cover,
+                blurRadius: 20.0,
+                spreadRadius: 5.0,
+              ), //BoxShadow
+              BoxShadow(
+                color: Colors.white,
+                offset: const Offset(0.0, 0.0),
+                blurRadius: 0.0,
+                spreadRadius: 0.0,
+              ),
+            ],
+          ),
+          child: Image.asset(
+            "assets/images/lp_image.png",
+            //width: width * 0.7,
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
       ),
       Container(
         width: width,
@@ -52,15 +53,33 @@ class LandingPage extends StatelessWidget {
             Text(
               "Capybara Certified \nEncryption",
               style: TextStyle(
+                  shadows: <Shadow>[
+                    Shadow(
+                      offset: Offset(5.0, 5.0),
+                      blurRadius: 5.0,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    Shadow(
+                      offset: Offset(10.0, 10.0),
+                      blurRadius: 8.0,
+                      color: Color.fromARGB(124, 7, 7, 7),
+                    ),
+                  ],
+                  fontFamily: 'Monsterrat',
+                  letterSpacing: 5,
                   fontWeight: FontWeight.bold,
-                  fontSize: 40.0,
+                  fontSize: 50,
                   color: Colors.white),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Text(
                 "The Capybara community has deemed this online encryter worthy of 'ok i pull up'.",
-                style: TextStyle(fontSize: 16.0, color: Colors.white),
+                style: TextStyle(
+                    fontFamily: 'Monsterrat',
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    letterSpacing: 5),
               ),
             ),
             MaterialButton(
@@ -84,9 +103,14 @@ class LandingPage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 20.0, horizontal: 40),
+                      
                   child: Text(
-                    "Encrypt Now!",
-                    style: TextStyle(color: Colors.white),
+                    "Encrypt Now",
+                    style: TextStyle(
+                        fontFamily: 'Monsterrat',
+                        color: Colors.white,
+                        letterSpacing: 5,
+                        fontSize: 20),
                   ),
                 ),
               ),
