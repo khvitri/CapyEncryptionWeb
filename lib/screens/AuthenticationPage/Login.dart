@@ -77,8 +77,7 @@ class _Login extends State<Login> {
 
     final txtbutton = TextButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Register()));
+          Navigator.pushNamed(context, '/register');
         },
         child: const Text(
           'Not a Capymember? Register here',

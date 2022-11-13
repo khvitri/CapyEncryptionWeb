@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webpage/Screens/AuthenticationPage/Login.dart';
+import 'package:flutter_webpage/DataStructures/FirebaseUser.dart';
+import 'package:flutter_webpage/Firebase/AuthFire.dart';
+import 'package:provider/provider.dart';
 
 class Navbar extends StatelessWidget {
   @override
@@ -21,6 +23,7 @@ class Navbar extends StatelessWidget {
 class DesktopNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<FirebaseUser?>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Container(
@@ -69,12 +72,18 @@ class DesktopNavbar extends StatelessWidget {
                   color: Color.fromARGB(255, 19, 126, 38),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
+                  onPressed: () async {
+                    if (user == null) {
+                      Navigator.pushNamed(context, '/log_in');
+                    } else {
+                      await AuthService().signOut();
+                      if (ModalRoute.of(context)?.settings.name != "/") {
+                        Navigator.pop(context);
+                      }
+                    }
                   },
                   child: Text(
-                    "Login/Regsiter",
+                    user == null ? "Login/Regsiter" : "Logout",
                     style: TextStyle(color: Colors.white),
                   ),
                 )

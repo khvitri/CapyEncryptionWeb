@@ -3,6 +3,7 @@ import 'package:flutter_webpage/DataStructures/text_files.dart';
 import 'package:flutter_webpage/Functions/Encrypt.dart';
 import 'package:flutter_webpage/Firebase/UploadToDoc.dart';
 import 'package:flutter_webpage/Screens/Loading/Loading.dart';
+import 'package:flutter_webpage/Screens/ViewTextFile/ViewTextFile.dart';
 import 'package:provider/provider.dart';
 import '../../DataStructures/FirebaseUser.dart';
 
@@ -23,19 +24,33 @@ class _PullUpPageState extends State<PullUpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            // TO DO: Build a list of text files here
-            // TO DO: Read database info of the use
             Container(
-              color: Colors.white,
+              decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
+                  // borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    width: 8,
+                    color: Color.fromARGB(255, 24, 23, 23),
+                    strokeAlign: StrokeAlign.outside,
+                  )),
               height: 500,
+              width: 500,
               child: ListView.separated(
                   separatorBuilder: (context, index) =>
                       Divider(color: Colors.black),
                   itemCount: textfirefiles!.length,
                   itemBuilder: ((context, index) {
-                    return ListTile(
-                        title: Text('${textfirefiles[index].name}'),
-                        leading: Icon(Icons.file_present));
+                    return GestureDetector(
+                      child: ListTile(
+                          title: Text('${textfirefiles[index].name}'),
+                          leading: Icon(Icons.file_present)),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                ViewTextFile(textfirefiles[index])));
+                      },
+                    );
                   })),
             ),
             MaterialButton(

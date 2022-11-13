@@ -24,7 +24,8 @@ class EncryptionPage extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            Navbar(),
+            StreamProvider<FirebaseUser?>.value(
+                value: AuthService().user, initialData: null, child: Navbar()),
             Flexible(
                 child: Container(
               width: double.infinity,
