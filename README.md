@@ -10,7 +10,7 @@ Follow the flutter installation here: https://docs.flutter.dev/get-started/insta
 
 # Project Info
 
-# Goal
+## Goal
 This project attempts to replicate secure cloud storage services such as Google Drive, DropBox, pCloud etc.
 
 Capybara Certified
