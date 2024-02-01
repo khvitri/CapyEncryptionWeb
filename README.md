@@ -15,3 +15,6 @@ Follow the flutter installation here: https://docs.flutter.dev/get-started/insta
 ## Run commands
 - run "flutter packages get" in the project directory
 - run "flutter run -d chrome" in the project directory to load the program
+
+# Access the webpage
+encryption-web.firebaseapp.com
